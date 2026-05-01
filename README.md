@@ -40,7 +40,7 @@ This project progresses across two capstone courses, developing an AI vs. Human 
 | **Pre-engineered features** | 14 numerical stylometric features: word count, character count, sentence count, lexical diversity, avg sentence/word length, punctuation ratio, readability scores (Flesch, Gunning Fog), grammar errors, passive voice ratio, predictability score, burstiness, sentiment score |
 | **Label convention** | `0` = Human-written, `1` = AI-generated |
 
-**Important dataset caveat:** The AI-labeled class was generated using the Faker library, which produces random word sequences rather than fluent LLM output. Several samples contain incoherent text like *"Director scene kitchen call money. Agreement professional team foot."* SHAP analysis confirmed the model learned Faker-specific vocabulary artifacts rather than real AI authorship signals. This is the core motivation for the transformer approach and the real LLM evaluation.
+**Dataset Note:** The AI-labeled class was generated using the Faker library, which produces random word sequences rather than fluent LLM output. Several samples contain incoherent text like *"Director scene kitchen call money. Agreement professional team foot."* SHAP analysis confirmed the model learned Faker-specific vocabulary artifacts rather than real AI authorship signals. This is the core motivation for the transformer approach and the real LLM evaluation.
 
 ---
 
