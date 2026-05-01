@@ -16,7 +16,7 @@ This project progresses across two capstone courses, developing an AI vs. Human 
 
 **Capstone 2** extends to model optimization (Random Forest, Gradient Boosting), deep error analysis, SHAP global explainability, LIME word-level explainability, frozen DistilBERT transformer embeddings, and evaluation on 80 genuinely GPT-4o-mini-generated text samples. The final pipeline is a hybrid BERT + stylometric classifier served via Streamlit.
 
-**The central honest finding:** The Random Forest's 90.8% in-distribution F1 is achieved by memorizing Faker library vocabulary patterns in the synthetic training data — not by learning generalizable signals of AI authorship. When tested on real GPT-4o-mini output, the TF-IDF RF predicts every sample as Human (AI-class F1 = 0.000). The Hybrid BERT model generalizes meaningfully, achieving 69.9% macro F1 and 63.2% AI-class F1 on real LLM output.
+**Key Finding:** The Random Forest's 90.8% in-distribution F1 is achieved by memorizing Faker library vocabulary patterns in the synthetic training data — not by learning generalizable signals of AI authorship. When tested on real GPT-4o-mini output, the TF-IDF RF predicts every sample as Human (AI-class F1 = 0.000). The Hybrid BERT model generalizes meaningfully, achieving 69.9% macro F1 and 63.2% AI-class F1 on real LLM output.
 
 | Model | In-Distribution F1 | Real LLM F1 | AI-Class F1 (Real) |
 |---|---|---|---|
