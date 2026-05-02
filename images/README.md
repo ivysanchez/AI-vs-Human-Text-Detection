@@ -1,12 +1,9 @@
 # Images
 
-Store exported plot images here for display in the README.
 
-## Recommended exports from the notebooks
+After running `notebooks/ai_vs_human_final.ipyng`, save the following figures to this directory:
 
-After running `notebooks/04_train_model_clean.ipynb`, save the following figures to this directory:
-
-| Suggested filename | Description | Source cell |
+| Filename | Description | Source cell |
 |---|---|---|
 | `01_class_distribution.png` | Bar chart of Human vs AI label counts | Part 2 |
 | `02_feature_correlation_heatmap.png` | 14-feature correlation matrix | Part 2 |
