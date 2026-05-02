@@ -162,7 +162,6 @@ SHAP (TreeExplainer) was applied to all 502 test samples across the 800 selected
 
 
 **Key finding:** Several of the top features are TF-IDF bigrams containing 'young' or 'yes' — vocabulary patterns specific to the Faker library, not characteristics of real AI text. This is the central diagnostic result of the project: the Random Forest's 91.41% F1 is achieved by recognizing Faker artifacts, not AI authorship. SHAP force plots on high-confidence errors confirmed this — False Negatives occurred precisely when Faker bigrams were absent from a sample.
-<img width="800" height="600" alt="08_shap_force_fn1" src="https://github.com/user-attachments/assets/744fbca5-0312-464e-ae46-9cf273ff89aa" />
 
 
 ### LIME — Word-Level Explanations (Phase 9)
@@ -172,6 +171,9 @@ LIME was applied in four passes: one high-confidence correct AI prediction, one 
 - **Pass 1 (correct AI, confidence 0.845):** Near-zero LIME weights across all words. This is structurally expected — the model's discriminative signal comes from TF-IDF bigrams, and LIME perturbs single words, breaking those bigrams. This is an inherent limitation of word-level perturbation on a bigram-dominated classifier.
 - **Pass 2 (correct Human, 5 words, confidence 0.898):** Pathological symmetric result — every word appeared at identical weight in both AI-pushing and Human-pushing lists. Five-word texts collapse LIME's perturbation space.
 - **Pass 3 (False Negative, confidence 0.828):** Meaningful weights. Words 'job,' 'role,' 'Along,' 'certainly' pushed toward Human; 'turn,' 'trip,' 'ball,' 'conference' pushed toward AI. Human-pushing words prevailed — a Faker sequence that happened to land in the human-associated region.
+  Pass 3 below:
+  <img width="1589" height="495" alt="09_lime_pass3" src="https://github.com/user-attachments/assets/6e39f789-1090-4a8a-855a-e7c637b2def1" />
+
 - **Pass 4 (False Negative, confidence 0.700):** Same pattern — 'follow,' 'front,' 'cover,' 'threat' pushed Human while 'which,' 'each,' 'Talk,' 'Spring' pushed AI.
 
 LIME and SHAP tell a consistent story from two angles: errors are dataset-quality artifacts, not model failures.
