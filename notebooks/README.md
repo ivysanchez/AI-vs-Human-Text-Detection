@@ -42,11 +42,11 @@ capstone2/
 | `phase11_real_llm_evaluation.ipynb` | Real LLM test: 80 GPT-4o-mini samples. Evaluates all 3 models. Original RF AI F1 = **0.000**. Hybrid BERT/LGBM macro F1 = **~0.99** | `models/avh_best_bundle.pkl` |
 
 
-## 'Other files:'
-| Notebook | Content | Key Output |
+## `Other files/`
+| Notebook | Content |
 |---|---|---|
 | `ai_vs_human_final.ipynb` | Complete full ran pipeline with comments/interpretations |
-|`train_model.ipynb` | Clean code no comments/interpretations, used for deployment \
+|`train_model.ipynb` | Clean code no comments/interpretations, used for deployment |
 
 
 ---
