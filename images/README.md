@@ -17,9 +17,3 @@ After running `notebooks/ai_vs_human_final.ipyng`, save the following figures to
 | `10_confusion_matrices.png` | confusion matrices on real LLM eval | Part 11 |
 | `11_f1_by_source.png` | F1 comparison: GPT-4o-mini vs Human by model | Part 11 |
 
-## How to save plots from notebooks
-
-Add this to any matplotlib cell before `plt.show()`:
-```python
-plt.savefig("images/FILENAME.png", dpi=150, bbox_inches="tight")
-```
