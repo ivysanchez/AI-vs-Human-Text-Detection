@@ -321,11 +321,11 @@ ai-text-detection-pipeline/
 │   |   ├── phase10_transformer_embeddings.ipynb
 │   |   └── phase11_real_llm_evaluation.ipynb
 │   │
-|   |
-│   └── other files/
-│   |   ├── phase6_model_optimization.ipynb
-│   |   ├── phase7_error_analysis.ipynb
-|
+│   │
+│   └── other files/                    ── full code files
+│   |   ├── ai_vs_human_final.ipynb
+│   |   ├── train_model.ipynb
+│   │
 |
 ├── src/
 │   └── streamlit_app.py                 ← Streamlit deployment app
