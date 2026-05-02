@@ -1,5 +1,5 @@
 model,eval_set,n_samples,macro_f1,human_class_f1,ai_class_f1,gap_vs_indist,notes
-Original RF (TF-IDF + stylometric),Real LLM (GPT-4o-mini),150,0.3182,0.6364,0.0000,-0.5902,Predicted every GPT sample as Human
-Hybrid RF (BERT + top-20 stylometric + domain adaptive),Real LLM (GPT-4o-mini),150,0.9798,0.7656,0.6320,-0.1448,Best generalizing configuration
-LightGBM (domain adaptive),Real LLM (GPT-4o-mini),150,0.9866,0.7656,0.6320,-0.1448,Best generalizing configuration
+Original RF (TF-IDF + stylometric),Real LLM (GPT-4o-mini),150,0.3182,0.6364,0.0000,-0.5959,Predicted every GPT sample as Human
+Hybrid RF (BERT + top-20 stylometric + domain adaptive),Real LLM (GPT-4o-mini),150,0.9798,0.7656,0.9816,+0.1327,Best generalizing configuration
+LightGBM (BERT + top-20 stylometric + domain adaptive),Real LLM (GPT-4o-mini),150,0.9866,0.7656,0.9877,+0.1530,Best generalizing configuration
 
