@@ -44,7 +44,7 @@ capstone2/
 
 ## `Other files/`
 | Notebook | Content |
-|---|---|---|
+|---|---|
 | `ai_vs_human_final.ipynb` | Complete full ran pipeline with comments/interpretations |
 |`train_model.ipynb` | Clean code no comments/interpretations, used for deployment |
 
