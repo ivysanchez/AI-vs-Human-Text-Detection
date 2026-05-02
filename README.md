@@ -218,10 +218,9 @@ Across Capstone 1 and 2, this project built a complete AI vs. Human text detecti
 ## Future Work
 
 1. **End-to-end DistilBERT fine-tuning** — unfreeze all layers, attach a 2-class classification head on [CLS], fine-tune for 3–5 epochs at lr=2e-5 on the SR-augmented training set. Target: AI-class F1 > 0.75 on GPT-4o-mini.
-2. **Domain-adaptive training** — incorporate 50–100 real GPT-4o-mini samples per content type into training if frozen fine-tuning alone does not reach target.
-3. **Cross-validation for hyperparameter tuning** — replace single test-set model selection with k-fold CV on the training set to eliminate the small optimistic bias in the Phase 6 results.
-4. **Content-type stratification** — extend stratified splitting to include content type in addition to label.
-5. **Multi-LLM evaluation** — test on Claude, Gemini, and Llama outputs to measure robustness across generators (Gemini API was unavailable during development).
+2. **Cross-validation for hyperparameter tuning** — replace single test-set model selection with k-fold CV on the training set to eliminate the small optimistic bias in the Phase 6 results.
+3. **Content-type stratification** — extend stratified splitting to include content type in addition to label.
+4. **Multi-LLM evaluation** — test on Claude, Gemini, and Llama outputs to measure robustness across generators (Gemini API was unavailable during development).
 
 ---
 
@@ -315,14 +314,19 @@ ai-text-detection-pipeline/
 │   │
 │   │
 │   └── capstone2/                    ── Phases 9–11 (Capstone 2 deliverable)
-│       ├── phase6_model_optimization.ipynb
-│       ├── phase7_error_analysis.ipynb
-│       └── phase8_shap_explainability.ipynb
-│       ├── phase9_lime_explainability.ipynb
-│       ├── phase10_transformer_embeddings.ipynb
-│       └── phase11_real_llm_evaluation.ipynb
-
-│
+│   |   ├── phase6_model_optimization.ipynb
+│   |   ├── phase7_error_analysis.ipynb
+│   |   └── phase8_shap_explainability.ipynb
+│   |   ├── phase9_lime_explainability.ipynb
+│   |   ├── phase10_transformer_embeddings.ipynb
+│   |   └── phase11_real_llm_evaluation.ipynb
+│   │
+|   |
+│   └── other files/
+│   |   ├── phase6_model_optimization.ipynb
+│   |   ├── phase7_error_analysis.ipynb
+|
+|
 ├── src/
 │   └── streamlit_app.py                 ← Streamlit deployment app
 │
