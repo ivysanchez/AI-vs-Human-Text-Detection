@@ -1,4 +1,4 @@
-# Detecting AI vs. Human Written Text Content
+# Detecting AI vs. Human Written Text 
 
 **Ivy Sanchez | The University of Texas at Arlington | DATA 4381/4382 — Capstone 1 & 2**
 
