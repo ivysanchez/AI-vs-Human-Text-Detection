@@ -141,9 +141,9 @@ After SHAP revealed the RF learned Faker-specific bigrams rather than real AI si
 | Baseline | SVM | 0.6094 | 0.6095 |
 | Back-Translation | LR | 0.6545 | 0.6379 |
 | Back-Translation | SVM | 0.6197 | 0.6432 |
-| SR Augmentation | LR | 0.8245 | 0.8390 |
-| SR Augmentation | SVM | 0.8062 | 0.8062 |
-| SR + Optimized | **RF (final)** | **0.9269** | **0.9265** |
+| SR Augmentation | LR | 0.8031 | 0.8032 |
+| SR Augmentation | SVM | 0.7697 | 0.77 |
+| SR + Optimized | **RF (final)** | **0.9134** | **0.141** |
 
 ### Real LLM Generalization (Phase 11 — 150-sample eval set: 80 GPT-4o-mini + 70 human)
 <img width="613" height="140" alt="Screenshot 2026-05-02 at 1 34 53 AM" src="https://github.com/user-attachments/assets/7e89f3e3-a408-4a12-8db3-e69e490986ad" />
