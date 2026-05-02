@@ -21,12 +21,10 @@ This project progresses across two capstone courses, developing an AI vs. Human 
 **The key finding:** The classical TF-IDF Random Forest achieves strong in-distribution performance but fails completely on real LLM data, indicating overfitting to synthetic (Faker-generated) patterns rather than true AI detection signals.
 In contrast, hybrid models using BERT + stylometric features generalize significantly better.
 
-| Model | In-Distribution F1 | Real LLM F1 | AI-Class F1 (Real) |
-|---|---|---|---|
-| Baseline LR | ~0.645 | — | — |
-| SR + LR | ~0.805 | — | — |
-| SR + RF (optimized) | 0.9141 | 0.3182 | 0.000 |
-| Hybrid RF (BERT + stylo + domain-adaptive) | 0.8471 | 0.9798 | **0.9816** |
+<img width="1947" height="592" alt="10_confusion_matrices" src="https://github.com/user-attachments/assets/7d567fa6-b24f-4bdf-9813-b3339a4da542" />
+<img width="1289" height="590" alt="11_f1_by_source" src="https://github.com/user-attachments/assets/44d55702-854d-4d41-b89d-421aa8400d87" />
+
+
 
 > ⚠️ Slight numeric variation (±0.001 F1) is expected across reruns due to stochastic components. See [Reproducibility](#reproducibility) below.
 
@@ -93,6 +91,10 @@ Logistic Regression and linear SVM were selected as baselines for interpretabili
 
 ### Optimized Classical Models (Capstone 2 — Phase 6)
 Random Forest and Gradient Boosting were added to the search because they handle correlated features naturally (by subsampling features at each split), capture non-linear interactions between stylometric features, and are scale-invariant (no StandardScaler required). A grid search across four model families — LR (L1, C∈{1,2,3}), SVM (RBF, C∈{7–9}), Gradient Boosting (n∈{180–220}, lr∈{0.12–0.18}), and Random Forest (n∈{180–250}) — identified the best configuration.
+
+Phase 1-6 Model Progression:
+<img width="1189" height="590" alt="05_model_progression_bar" src="https://github.com/user-attachments/assets/3f709660-81b5-43d2-891f-b239cb2c76f0" />
+
 
 **Why Random Forest won:**
 1. High-dimensional correlated features — random feature subsampling at each split prevents multicollinearity from dominating
