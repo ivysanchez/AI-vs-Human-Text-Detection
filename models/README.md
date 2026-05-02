@@ -13,4 +13,4 @@ Running notebook 04 end-to-end will produce:
 
 The Streamlit app (`src/streamlit_app.py`) loads `avh_best_bundle.pkl` at startup.
 
-**Note:** Slight numeric variations (±0.001 F1) are expected across reruns due to LightGBM histogram binning. See the reproducibility note in notebook 04, Cell 1.
+**Note:** Slight numeric variations (±0.001 F1) are expected across reruns. See the reproducibility note in notebook 04, Cell 1.
