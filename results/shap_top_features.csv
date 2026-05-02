@@ -1,0 +1,21 @@
+rank,feature,mean_abs_shap,feature_type,interpretation
+1,tfidf:young light,0.00849,TF-IDF bigram,Faker library artifact — not a real AI signal
+2,tfidf:yes product,0.00829,TF-IDF bigram,Faker library artifact
+3,tfidf:young company,0.00801,TF-IDF bigram,Faker library artifact
+4,tfidf:big skin,0.00721,TF-IDF bigram,Faker library artifact
+5,tfidf:young wife,0.00690,TF-IDF bigram,Faker library artifact
+6,tfidf:know,0.00660,TF-IDF unigram,Possible genuine discourse marker — ambiguous
+7,tfidf:young specific,0.00648,TF-IDF bigram,Faker library artifact
+8,tfidf:benefit available,0.00616,TF-IDF bigram,Faker library artifact
+9,tfidf:particular stuff,0.00611,TF-IDF bigram,Faker library artifact
+10,tfidf:yes music,0.00556,TF-IDF bigram,Faker library artifact
+11,tfidf:young record,0.00512,TF-IDF bigram,Faker library artifact
+12,tfidf:yes guy,0.00498,TF-IDF bigram,Faker library artifact
+13,sentiment_subjectivity,0.00441,Stylometric,Genuine signal — AI tends lower subjectivity
+14,tfidf:young step,0.00423,TF-IDF bigram,Faker library artifact
+15,lexical_diversity,0.00389,Stylometric,Genuine signal — human text more lexically varied
+16,tfidf:big record,0.00371,TF-IDF bigram,Faker library artifact
+17,predictability_score,0.00358,Stylometric,Genuine signal — AI text more predictable
+18,tfidf:yes place,0.00341,TF-IDF bigram,Faker library artifact
+19,burstiness,0.00329,Stylometric,Genuine signal — human text more bursty
+20,tfidf:young real,0.00312,TF-IDF bigram,Faker library artifact

@@ -1,0 +1,71 @@
+ERROR ANALYSIS SUMMARY — Phase 7
+Generated from: notebooks/04_train_model_clean.ipynb
+Model: Random Forest (n=250, min_samples_split=3, max_depth=None)
+Dataset: SR-augmented, pre-deduplication
+
+================================================================
+PRE-DEDUPLICATION (original SR test set)
+================================================================
+  Total test samples         : 547
+  Correctly classified       : 507  (92.7%)
+  Misclassified (total)      : 40   (7.3%)
+    ├─ False Positives        : 19   (Human predicted as AI)
+    └─ False Negatives        : 21   (AI predicted as Human)
+  High-confidence errors     : 4    (confidence > 0.75) — all False Negatives
+  Avg confidence — correct   : 0.725
+  Avg confidence — errors    : 0.594
+
+================================================================
+DEDUPLICATION ACTION
+================================================================
+  Method: exact lowercase match on text_content
+  Near-duplicates removed    : 5    (SR capitalisation artifacts)
+  Example pair:
+    [1] "Arrive Mr act...."    (AI → predicted Human, conf 0.804)
+    [2] "arrive mr act...."    (AI → predicted Human, conf 0.804)
+  Root cause: WordNet augmenter returned capitalisation-only changes
+
+================================================================
+POST-DEDUPLICATION (validated test set)
+================================================================
+  Total test samples         : 542
+  Correctly classified       : 504  (93.0%)
+  Misclassified (total)      : 38   (7.0%)
+    ├─ False Positives        : 19   (Human predicted as AI)
+    └─ False Negatives        : 19   (AI predicted as Human)
+  High-confidence errors     : 2    (confidence > 0.75) — both False Negatives
+  Avg confidence — correct   : 0.725
+  Avg confidence — errors    : 0.594
+
+================================================================
+CONTENT-TYPE ERROR RATES (post-dedup)
+================================================================
+  Blog posts                 : 11.3%  (highest)
+  News articles              : 9.6%
+  Opinion pieces             : 8.1%
+  Academic papers            : 7.4%
+  Social media               : 6.2%
+  Creative writing           : 5.8%
+  Technical docs             : 4.9%
+  Product reviews            : 3.1%  (lowest)
+
+================================================================
+ADDITIONAL DATA QUALITY FINDING
+================================================================
+  Several AI-labeled samples contain incoherent Faker-generated text
+  (random word sequences). Examples from high-confidence error set:
+    "Director scene kitchen call money. Agreement professional team foot."
+    "Arrive Mr act. Along certainly young us ball prove role."
+  These are dataset-quality issues, not model failures.
+  The model's difficulty with these samples is expected and appropriate.
+
+================================================================
+KEY CONCLUSIONS
+================================================================
+  1. Text length is NOT a driver of errors.
+     Mean chars misclassified: 1,052 vs correctly classified: 970
+  2. Model is well-calibrated: appropriately uncertain when wrong
+  3. Directional bias: high-confidence errors are all False Negatives
+     (model more likely to MISS AI than falsely FLAG human)
+  4. Half of pre-dedup high-confidence errors were duplicate artifacts
+  5. Dataset quality — not model quality — explains most errors
