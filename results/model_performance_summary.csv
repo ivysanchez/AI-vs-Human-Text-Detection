@@ -9,7 +9,7 @@ Capstone 2 - Phase 6,SR + Optimized,Random Forest (n=250),0.9134,0.9141,Deduplic
 Capstone 2 - Phase 10,Hybrid BERT,BERT-only RF (768-dim CLS),0.9134,0.9141,In distribution
 Capstone 2 - Phase 10,Hybrid BERT,Hybrid RF (BERT + top-20 stylometric),0.8486,0.8471,In distribution
 Capstone 2 - Phase 10,Hybrid BERT,Hybrid LightGBM (BERT + top-20 stylometric),0.8335,0.8336,In distribution
-Capstone 2 - Phase 11,Hybrid BERT,BERT-only RF (BERT + top-20 stylometric),-,0.3182,On real llm output
+Capstone 2 - Phase 11,Hybrid BERT,Original RF (BERT + top-20 stylometric),-,0.3182,On real llm output
 ⭐️ Capstone 2 - Phase 11,Hybrid BERT,Hybrid RF (BERT + top-20 stylometric + domain adaptive),-,0.9798,On real llm output
-Capstone 2 - Phase 11,Hybrid BERT,Hybrid LightGBM (BERT + top-20 stylometric + domain adaptive),-,0.9866,On real llm output
+Capstone 2 - Phase 11,Hybrid BERT,LightGBM (BERT + top-20 stylometric + domain adaptive),-,0.9866,On real llm output
 
