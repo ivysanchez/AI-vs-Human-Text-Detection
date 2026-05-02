@@ -1,4 +1,4 @@
-Place the Kaggle dataset CSV here.
+
 
 Dataset: AI vs Human Content Detection – 1000 Record
 Source: https://www.kaggle.com/datasets/pratyushpuri/ai-vs-human-content-detection-1000-record-in-2025
