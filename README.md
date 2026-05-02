@@ -102,8 +102,7 @@ Random Forest and Gradient Boosting were added to the search because they handle
 
 ### Hybrid Transformer Model (Capstone 2 — Phase 10)
 After SHAP revealed the RF learned Faker-specific bigrams rather than real AI signals, frozen DistilBERT [CLS] embeddings (768 dimensions) were concatenated with the top-20 SHAP-ranked stylometric features to produce a 788-dimensional hybrid feature matrix. LightGBM and Random Forest were trained on this hybrid space. This tests whether contextual semantic representations (which are consistent across real AI generators) generalize better than vocabulary-specific TF-IDF patterns.
-SHAP Analysis:
-<img width="989" height="690" alt="Unknown-3" src="https://github.com/user-attachments/assets/21eb699d-a0bc-4bd4-a0fc-8d9587bfe71b" />
+
 
 
 ---
@@ -159,18 +158,7 @@ SHAP Analysis:
 
 SHAP (TreeExplainer) was applied to all 502 test samples across the 800 selected features. The top 10 features by mean absolute SHAP value were:
 
-| Rank | Feature | Mean |SHAP| |
-|---|---|---|
-| 1 | tfidf:young light | 0.00849 |
-| 2 | tfidf:yes product | 0.00829 |
-| 3 | tfidf:young company | 0.00801 |
-| 4 | tfidf:big skin | 0.00721 |
-| 5 | tfidf:young wife | 0.00690 |
-| 6 | tfidf:know | 0.00660 |
-| 7 | tfidf:young specific | 0.00648 |
-| 8 | tfidf:benefit available | 0.00616 |
-| 9 | tfidf:particular stuff | 0.00611 |
-| 10 | tfidf:yes music | 0.00556 |
+<img width="800" height="600" alt="Unknown-3" src="https://github.com/user-attachments/assets/21eb699d-a0bc-4bd4-a0fc-8d9587bfe71b" />
 
 **Key finding:** 7 of the top 10 features are TF-IDF bigrams containing 'young' or 'yes' — vocabulary patterns specific to the Faker library, not characteristics of real AI text. This is the central diagnostic result of the project: the Random Forest's 90.8% F1 is achieved by recognizing Faker artifacts, not AI authorship. SHAP force plots on high-confidence errors confirmed this — False Negatives occurred precisely when Faker bigrams were absent from a sample.
 
@@ -323,9 +311,8 @@ ai-text-detection-pipeline/
 │   │
 │   │
 │   └── other files/                    ── full code files
-│   |   ├── ai_vs_human_final.ipynb
-│   |   ├── train_model.ipynb
-│   │
+│       ├── ai_vs_human_final.ipynb
+│       ├── train_model.ipynb
 |
 ├── src/
 │   └── streamlit_app.py                 ← Streamlit deployment app
