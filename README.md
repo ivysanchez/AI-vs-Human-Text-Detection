@@ -303,15 +303,15 @@ ai-text-detection-pipeline/
 │   │   ├── phase4_baseline_models.ipynb
 │   │   └── phase5_augmentation_sr.ipynb
 │   │
-│   ├── progress_update/                 ── Phases 6–8 (between-capstone checkpoint)
-│   │   ├── phase6_model_optimization.ipynb
-│   │   ├── phase7_error_analysis.ipynb
-│   │   └── phase8_shap_explainability.ipynb
 │   │
-│   └── capstone2/                       ── Phases 9–11 (Capstone 2 deliverable)
+│   └── capstone2/                    ── Phases 9–11 (Capstone 2 deliverable)
+│       ├── phase6_model_optimization.ipynb
+│       ├── phase7_error_analysis.ipynb
+│       └── phase8_shap_explainability.ipynb
 │       ├── phase9_lime_explainability.ipynb
 │       ├── phase10_transformer_embeddings.ipynb
 │       └── phase11_real_llm_evaluation.ipynb
+
 │
 ├── src/
 │   └── streamlit_app.py                 ← Streamlit deployment app
@@ -354,10 +354,5 @@ Python version: 3.10+
 ---
 
 ## References
-
-- Callison-Burch, C., & Dugan, L. (2024). Detecting machine-generated text. *University of Pennsylvania Blog.*
 - Puri, P. (2025). AI vs Human Content Detection – 1000 Record Dataset. *Kaggle.* https://www.kaggle.com/datasets/pratyushpuri/ai-vs-human-content-detection-1000-record-in-2025
-- Prova, N. (2024). Detecting AI generated text based on NLP and machine learning techniques. *arXiv.* https://arxiv.org/abs/2404.10032
-- Ribeiro, M. T., Singh, S., & Guestrin, C. (2016). "Why should I trust you?" *KDD 2016.* https://arxiv.org/abs/1602.04938
-- Sadasivan, V. S. (2023). Can AI-generated text be reliably detected? *arXiv.* https://arxiv.org/abs/2303.11156
-- Weber-Wulff, D., & Anohina-Naumeca, A. (2023). Testing of detection tools for AI-generated text. *Biometric Technology Today.*
+
