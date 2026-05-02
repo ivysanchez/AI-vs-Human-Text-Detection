@@ -14,11 +14,11 @@ As AI language models become increasingly fluent and accessible, the ability to 
 
 This project progresses across two capstone courses, developing an AI vs. Human text classifier from first principles.
 
-**Capstone 1** establishes a feature-driven classical ML pipeline: TF-IDF n-grams, stylometric feature engineering, and baseline Logistic Regression / SVM classifiers. Synonym Replacement (SR) augmentation produces a 19 percentage-point F1 gain over the raw baseline.
+**Capstone 1** establishes a feature-driven classical ML pipeline: TF-IDF n-grams, stylometric feature engineering, and baseline Logistic Regression / SVM classifiers. Synonym Replacement (SR) augmentation produces a large percentage-point F1 gain over the raw baseline.
 
 **Capstone 2** extends to model optimization (Random Forest, Gradient Boosting), deep error analysis, SHAP global explainability, LIME word-level explainability, frozen DistilBERT transformer embeddings, and evaluation on 80 genuinely GPT-4o-mini-generated text samples. The final pipeline is a hybrid BERT + stylometric classifier served via Streamlit.
 
-**The central honest finding:** The Random Forest's 91.41% in-distribution F1 is achieved by memorizing Faker library vocabulary patterns in the synthetic training data — not by learning generalizable signals of AI authorship. When tested on real GPT-4o-mini output, the TF-IDF RF predicts every sample as Human (AI-class F1 = 0.000). The Hybrid RF model generalizes meaningfully, achieving 97.98% macro F1 and 98.16% AI-class F1 on real LLM output.
+**The key finding:** The Random Forest's 91.41% in-distribution F1 is achieved by memorizing Faker library vocabulary patterns in the synthetic training data — not by learning generalizable signals of AI authorship. When tested on real GPT-4o-mini output, the TF-IDF RF predicts every sample as Human (AI-class F1 = 0.000). The Hybrid RF model generalizes meaningfully, achieving 97.98% macro F1 and 98.16% AI-class F1 on real LLM output.
 
 | Model | In-Distribution F1 | Real LLM F1 | AI-Class F1 (Real) |
 |---|---|---|---|
