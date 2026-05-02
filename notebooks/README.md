@@ -39,7 +39,7 @@ capstone2/
 | `phase8_shap_explainability.ipynb` | SHAP TreeExplainer. **Top features are Faker bigrams — central finding** | `outputs/shap_results.pkl` |
 | `phase9_lime_explainability.ipynb` | LIME 4-pass word-level analysis. Confirms SHAP finding. Documents bigram/perturbation limitation | *(results only)* |
 | `phase10_transformer_embeddings.ipynb` | Frozen DistilBERT [CLS] + top-20 stylometric → 788-dim hybrid. Trains **both LightGBM and Hybrid RF**; best val F1 becomes `deploy_model` | `outputs/hybrid_model_bundle.pkl` |
-| `phase11_real_llm_evaluation.ipynb` | Real LLM test: 80 GPT-4o-mini samples. Evaluates all 3 models. Original RF AI F1 = **0.000**. Hybrid BERT/LGBM macro F1 = **~0.699** | `models/avh_best_bundle.pkl` |
+| `phase11_real_llm_evaluation.ipynb` | Real LLM test: 80 GPT-4o-mini samples. Evaluates all 3 models. Original RF AI F1 = **0.000**. Hybrid BERT/LGBM macro F1 = **~0.99** | `models/avh_best_bundle.pkl` |
 
 ---
 
