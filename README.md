@@ -168,13 +168,13 @@ SHAP (TreeExplainer) was applied to all 502 test samples across the 800 selected
 
 LIME was applied in four passes: one high-confidence correct AI prediction, one high-confidence correct human prediction, and the two highest-confidence False Negatives.
 
-- **Pass 1 (correct AI, confidence 0.845):** Near-zero LIME weights across all words. This is structurally expected — the model's discriminative signal comes from TF-IDF bigrams, and LIME perturbs single words, breaking those bigrams. This is an inherent limitation of word-level perturbation on a bigram-dominated classifier.
-- **Pass 2 (correct Human, 5 words, confidence 0.898):** Pathological symmetric result — every word appeared at identical weight in both AI-pushing and Human-pushing lists. Five-word texts collapse LIME's perturbation space.
-- **Pass 3 (False Negative, confidence 0.828):** Meaningful weights. Words 'job,' 'role,' 'Along,' 'certainly' pushed toward Human; 'turn,' 'trip,' 'ball,' 'conference' pushed toward AI. Human-pushing words prevailed — a Faker sequence that happened to land in the human-associated region.
+- **Pass 1 (correct AI, confidence 0.847):** Near-zero LIME weights across all words. This is structurally expected — the model's discriminative signal comes from TF-IDF bigrams, and LIME perturbs single words, breaking those bigrams. This is an inherent limitation of word-level perturbation on a bigram-dominated classifier.
+- **Pass 2 (correct Human, 5 words, confidence 0.947):** Pathological symmetric result — every word appeared at identical weight in both AI-pushing and Human-pushing lists. Five-word texts collapse LIME's perturbation space.
+- **Pass 3 (False Negative, confidence 0.874):** Meaningful weights. Words 'turn,' 'role,' 'step,' 'job' pushed toward Human; 'turn,' 'step,' 'role,' 'job' also pushed toward AI.
   Pass 3 below:
   <img width="1589" height="495" alt="09_lime_pass3" src="https://github.com/user-attachments/assets/6e39f789-1090-4a8a-855a-e7c637b2def1" />
 
-- **Pass 4 (False Negative, confidence 0.700):** Same pattern — 'follow,' 'front,' 'cover,' 'threat' pushed Human while 'which,' 'each,' 'Talk,' 'Spring' pushed AI.
+- **Pass 4 (False Negative, confidence 0.778):** Same pattern — 'each,' 'talk,' 'because,' 'Spring' pushed Human while 'each,' 'talk,' 'because,' 'Spring' also pushed AI.
 
 LIME and SHAP tell a consistent story from two angles: errors are dataset-quality artifacts, not model failures.
 
@@ -192,19 +192,19 @@ Top features by chi-squared score during SelectKBest: `character_count`, `word_c
 
 2. **Random Forest outperformed all other classifiers** on the in-distribution benchmark because it handles correlated features, captures non-linear stylometric interactions, and is scale-invariant — properties that directly address the dataset's feature structure.
 
-3. **DistilBERT embeddings generalized where TF-IDF could not.** On real GPT-4o-mini output, the TF-IDF RF collapsed completely (AI-class F1 = 0.000) while the Hybrid BERT achieved 63.2% AI-class F1. Contextual embeddings encode semantic coherence patterns that survive the distribution shift from Faker to GPT-4o-mini; vocabulary-specific bigrams do not.
+3. **DistilBERT embeddings generalized where TF-IDF could not.** On real GPT-4o-mini output, the TF-IDF RF collapsed completely (AI-class F1 = 0.000) while the Hybrid BERT achieved 98.16% AI-class F1. Contextual embeddings encode semantic coherence patterns that survive the distribution shift from Faker to GPT-4o-mini; vocabulary-specific bigrams do not.
 
-4. **Qualitative review found what aggregate statistics missed.** Test set contamination from near-duplicate SR pairs (texts differing only in capitalization) was invisible in the aggregate error count and only discovered by reading the actual error texts in Phase 7. This led to the fuzzy deduplication step that corrected the reported accuracy from ~93% to a validated 93.0%.
+4. **Qualitative review found what aggregate statistics missed.** Test set contamination from near-duplicate SR pairs (texts differing only in capitalization) was invisible in the aggregate error count and only discovered by reading the actual error texts in Phase 7. This led to the fuzzy deduplication step that corrected the reported accuracy from 91.41% to a validated 91.3%.
 
 **Practical impact:**
 
-The pipeline demonstrates that a hybrid BERT + stylometric approach is necessary for deployable AI text detection — classical TF-IDF features are insufficient for real-world generalization. The ~70% macro F1 on GPT-4o-mini output is a meaningful starting point that would improve further with fine-tuning DistilBERT end-to-end on the classification task (rather than using frozen embeddings) and incorporating real LLM samples into training.
+The pipeline demonstrates that a hybrid BERT + stylometric approach is necessary for deployable AI text detection — classical TF-IDF features are insufficient for real-world generalization.
 
 ---
 
 ## Conclusion
 
-Across Capstone 1 and 2, this project built a complete AI vs. Human text detection pipeline progressing from a 64.5% baseline to a 70% macro F1 on real GPT-4o-mini output via a hybrid BERT + stylometric approach. The most important result is the honest generalization failure of the classical model: 90.8% in-distribution F1 with 0.0% AI detection on real LLM output. SHAP and LIME diagnosed the cause (Faker vocabulary artifacts), the transformer experiment proposed a solution (contextual embeddings), and the real LLM evaluation confirmed it works. The remaining gap to deployment quality (target: macro F1 > 0.85) is addressable through transformer fine-tuning and domain-adaptive training with real LLM data.
+Across Capstone 1 and 2, this project built a complete AI vs. Human text detection pipeline progressing from a 64.5% baseline to a 97.98% macro F1 on real GPT-4o-mini output via a hybrid BERT + stylometric + domain adaptive approach. The most important result is the honest generalization failure of the classical model: 91.41% in-distribution F1 with 0.0% AI detection on real LLM output. SHAP and LIME diagnosed the cause (Faker vocabulary artifacts), the transformer experiment proposed a solution (contextual embeddings), and the real LLM evaluation confirmed it works. The remaining gap to deployment quality (target: macro F1 > 0.85) was addressable through transformer fine-tuning and domain-adaptive training with real LLM data.
 
 ---
 
