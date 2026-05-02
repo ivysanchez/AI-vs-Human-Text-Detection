@@ -144,11 +144,8 @@ After SHAP revealed the RF learned Faker-specific bigrams rather than real AI si
 | SR + Optimized | **RF (final)** | **0.9269** | **0.9265** |
 
 ### Real LLM Generalization (Phase 11 — 150-sample eval set: 80 GPT-4o-mini + 70 human)
+<img width="613" height="140" alt="Screenshot 2026-05-02 at 1 34 53 AM" src="https://github.com/user-attachments/assets/7e89f3e3-a408-4a12-8db3-e69e490986ad" />
 
-| Model | In-Dist F1 | Real LLM F1 | Gap | AI-Class F1 |
-|---|---|---|---|---|
-| Original RF (TF-IDF + stylometric) | 0.9084 | 0.3182 | −0.5902 | **0.000** |
-| Hybrid RF (BERT + stylometric) | 0.8436 | **0.6988** | −0.1448 | **0.632** |
 
 ---
 
