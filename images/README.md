@@ -1,7 +1,7 @@
 # Images
 
 
-After running `notebooks/ai_vs_human_final.ipyng`, save the following figures to this directory:
+After running `notebooks/ai_vs_human_final.ipynb`, save the following figures to this directory:
 
 | Filename | Description | Source cell |
 |---|---|---|
