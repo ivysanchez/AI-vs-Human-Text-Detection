@@ -156,11 +156,14 @@ After SHAP revealed the RF learned Faker-specific bigrams rather than real AI si
 
 ### SHAP — Global Feature Importance (Phase 8)
 
-SHAP (TreeExplainer) was applied to all 502 test samples across the 800 selected features. The top 10 features by mean absolute SHAP value were:
+SHAP (TreeExplainer) was applied to all 502 test samples across the 800 selected features. The top 20 features by mean absolute SHAP value were:
 
 <img width="800" height="600" alt="Unknown-3" src="https://github.com/user-attachments/assets/21eb699d-a0bc-4bd4-a0fc-8d9587bfe71b" />
 
-**Key finding:** 7 of the top 10 features are TF-IDF bigrams containing 'young' or 'yes' — vocabulary patterns specific to the Faker library, not characteristics of real AI text. This is the central diagnostic result of the project: the Random Forest's 90.8% F1 is achieved by recognizing Faker artifacts, not AI authorship. SHAP force plots on high-confidence errors confirmed this — False Negatives occurred precisely when Faker bigrams were absent from a sample.
+
+**Key finding:** Several of the top features are TF-IDF bigrams containing 'young' or 'yes' — vocabulary patterns specific to the Faker library, not characteristics of real AI text. This is the central diagnostic result of the project: the Random Forest's 91.41% F1 is achieved by recognizing Faker artifacts, not AI authorship. SHAP force plots on high-confidence errors confirmed this — False Negatives occurred precisely when Faker bigrams were absent from a sample.
+<img width="800" height="600" alt="08_shap_force_fn1" src="https://github.com/user-attachments/assets/744fbca5-0312-464e-ae46-9cf273ff89aa" />
+
 
 ### LIME — Word-Level Explanations (Phase 9)
 
