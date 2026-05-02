@@ -72,4 +72,4 @@ Each notebook writes intermediate artifacts to `outputs/` for the next to load. 
 
 Always run the **seed cell (Cell 1) first** in every notebook before any other cell. All `train_test_split` calls use `random_state=42, stratify=y`. See the [main README](../README.md#reproducibility) for full details.
 
-> ⚠️ Slight numeric variation (±0.001 F1) is expected across reruns due to LightGBM histogram binning. This is not a bug.
+> ⚠️ Slight numeric variation (±0.001 F1) is expected across reruns. This is not a bug.
