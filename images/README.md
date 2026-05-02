@@ -1,7 +1,7 @@
 # Images
 
 
-After running `notebooks/ai_vs_human_final.ipynb`, save the following figures to this directory:
+Images from `notebooks/ai_vs_human_final.ipynb`:
 
 | Filename | Description | Source cell |
 |---|---|---|
