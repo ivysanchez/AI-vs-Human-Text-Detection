@@ -72,10 +72,17 @@ In contrast, hybrid models using BERT + stylometric features generalize signific
 **1. Clean class separation in stylometric features** — `predictability_score`, `burstiness`, and `grammar_errors` show unusually clean class separation, flagging the dataset as synthetic rather than naturally collected. This motivated careful evaluation on real LLM output in Phase 11.
 
 **2. Feature correlations** — `word_count`, `character_count`, and `sentence_count` are nearly perfectly correlated (r ≈ 1.00). `avg_word_length` and `gunning_fog_index` share r = 0.64. `predictability_score` and `burstiness` are correlated at r = 0.70. These correlations make linear models unreliable and motivated the switch to Random Forest.
+<img width="918" height="815" alt="02_feature_correlation_heatmap" src="https://github.com/user-attachments/assets/84821dc1-697d-4df2-837d-0362e53f0a16" />
+
 
 **3. Word clouds** — AI and human word clouds show visually distinct vocabulary. The AI cloud is dominated by Faker-library artifacts (common English words appearing with suspiciously high frequency), while the human cloud reflects more varied and idiomatic vocabulary.
+<img width="790" height="427" alt="04_wordcloud_human" src="https://github.com/user-attachments/assets/b80a2eed-7a9c-4dcf-aef2-db0900d3d657" />
+<img width="790" height="427" alt="03_wordcloud_ai" src="https://github.com/user-attachments/assets/5901eb8c-26df-41ee-88e5-c5fef8c95462" />
 
 **4. Balanced classes** — 684 human / 683 AI samples; no class weighting required.
+
+<img width="540" height="393" alt="01_class_distribution" src="https://github.com/user-attachments/assets/cc830654-c3c4-4328-abea-99e877ba854a" />
+
 
 ---
 
@@ -95,6 +102,9 @@ Random Forest and Gradient Boosting were added to the search because they handle
 
 ### Hybrid Transformer Model (Capstone 2 — Phase 10)
 After SHAP revealed the RF learned Faker-specific bigrams rather than real AI signals, frozen DistilBERT [CLS] embeddings (768 dimensions) were concatenated with the top-20 SHAP-ranked stylometric features to produce a 788-dimensional hybrid feature matrix. LightGBM and Random Forest were trained on this hybrid space. This tests whether contextual semantic representations (which are consistent across real AI generators) generalize better than vocabulary-specific TF-IDF patterns.
+SHAP Analysis:
+<img width="989" height="690" alt="Unknown-3" src="https://github.com/user-attachments/assets/21eb699d-a0bc-4bd4-a0fc-8d9587bfe71b" />
+
 
 ---
 
@@ -212,13 +222,12 @@ Across Capstone 1 and 2, this project built a complete AI vs. Human text detecti
 3. **Cross-validation for hyperparameter tuning** — replace single test-set model selection with k-fold CV on the training set to eliminate the small optimistic bias in the Phase 6 results.
 4. **Content-type stratification** — extend stratified splitting to include content type in addition to label.
 5. **Multi-LLM evaluation** — test on Claude, Gemini, and Llama outputs to measure robustness across generators (Gemini API was unavailable during development).
-6. **Streamlit LIME integration** — add inline word-highlight LIME explanations to the deployment app.
 
 ---
 
 ## Reproducibility
 
-> ⚠️ **Slight numeric variation (±0.001 F1) is expected across reruns.** This is due to LightGBM internal histogram binning differences and is not a bug. To minimize variation, follow the steps below.
+> ⚠️ **Slight numeric variation (±0.001 F1) is expected across reruns.** To minimize variation, follow the steps below.
 
 To get identical results on every run:
 
